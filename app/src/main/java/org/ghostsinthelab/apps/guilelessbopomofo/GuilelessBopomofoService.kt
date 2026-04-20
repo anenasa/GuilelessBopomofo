@@ -262,9 +262,7 @@ class GuilelessBopomofoService : InputMethodService(), CoroutineScope, SharedPre
         Log.d(logTag, "onStartInputView()")
 
         // detect if physical keyboard is presented
-        physicalKeyboardPresented =
-            (resources.configuration.keyboard == Configuration.KEYBOARD_QWERTY) && (resources.configuration.hardKeyboardHidden ==
-                    Configuration.HARDKEYBOARDHIDDEN_NO) && (!deviceIsEmulator)
+        physicalKeyboardPresented = false
 
         val inputType = info?.inputType?.and(InputType.TYPE_MASK_CLASS)
         // if the input type is phone or number, switch to symbol (alphanumeric) mode
