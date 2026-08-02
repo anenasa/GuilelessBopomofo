@@ -261,9 +261,7 @@ class GuilelessBopomofoService : InputMethodService(), CoroutineScope, SharedPre
         Log.d(logTag, "onStartInputView()")
 
         // detect if physical keyboard is presented
-        physicalKeyboardPresented =
-            (resources.configuration.keyboard == Configuration.KEYBOARD_QWERTY) && (resources.configuration.hardKeyboardHidden ==
-                    Configuration.HARDKEYBOARDHIDDEN_NO) && (!deviceIsEmulator)
+        physicalKeyboardPresented = false
 
         // re-apply the conversion engine to match the just-detected keyboard state
         applyConversionEngine()
