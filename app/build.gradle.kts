@@ -38,6 +38,15 @@ android {
         compose = true
     }
 
+    signingConfigs {
+        create("release") {
+            storeFile = rootProject.file("keystore.jks")
+            storePassword = providers.environmentVariable("KEY_STORE_PASSWORD").orNull
+            keyAlias = providers.environmentVariable("ALIAS").orNull
+            keyPassword = providers.environmentVariable("KEY_PASSWORD").orNull
+        }
+    }
+
     buildTypes {
         release {
             // Enables code-related app optimization.
@@ -52,6 +61,7 @@ android {
             ndk {
                 debugSymbolLevel = "FULL"
             }
+            signingConfig = signingConfigs.getByName("release")
         }
         debug {
             isMinifyEnabled = false
