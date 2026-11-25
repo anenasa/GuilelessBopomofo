@@ -201,11 +201,7 @@ class GuilelessBopomofoService : InputMethodService(), ImeHost, SharedPreference
         }
 
         // set Back key disposition
-        backDisposition = if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.P) {
-            BACK_DISPOSITION_ADJUST_NOTHING
-        } else {
-            BACK_DISPOSITION_DEFAULT
-        }
+        backDisposition = BACK_DISPOSITION_DEFAULT
 
         sharedPreferences = appSharedPreferences
         sharedPreferences.registerOnSharedPreferenceChangeListener(this)
